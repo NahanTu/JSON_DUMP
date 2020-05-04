@@ -1,0 +1,139 @@
+{
+  "nodes": [
+    {
+      "index": "n1",
+      "_name": "watcher_data_in",
+      "_type": "input"
+    },
+    {
+      "index": "n2",
+      "_name": "doc_in",
+      "_type": "pipeline"
+    },
+    {
+      "index": "n3",
+      "_name": "doc_norm",
+      "_type": "pipeline"
+    },
+    {
+      "index": "n4",
+      "_name": "doc_large",
+      "_type": "pipeline"
+    },
+    {
+      "index": "n5",
+      "_name": "doc_error",
+      "_type": "pipeline"
+    },
+    {
+      "index": "n6",
+      "_name": "converter",
+      "_type": "service"
+    },
+    {
+      "index": "n7",
+      "_name": "search0",
+      "_type": "output"
+    },
+    {
+      "index": "n8",
+      "_name": "search1",
+      "_type": "output"
+    },
+    {
+      "index": "n9",
+      "_name": "elastic_doc_error",
+      "_type": "output"
+    }
+  ],
+  "links": [
+    {
+      "_id": "e1",
+      "_sourceId": "n1",
+      "_targetId": "n2",
+      "_sourceName": "watcher",
+      "_targetName": "doc_in",
+      "doc_count": 1000
+    },
+    {
+      "_id": "e2",
+      "_sourceId": "n2",
+      "_targetId": "n3",
+      "_sourceName": "doc_in",
+      "_targetName": "doc_norm",
+      "doc_count": 750
+    },
+    {
+      "_id": "e3",
+      "_sourceId": "n2",
+      "_targetId": "n4",
+      "_sourceName": "doc_in",
+      "_targetName": "doc_large",
+      "doc_count": 150
+    },
+    {
+      "_id": "e4",
+      "_sourceId": "n2",
+      "_targetId": "n5",
+      "_sourceName": "doc_in",
+      "_targetName": "doc_error",
+      "doc_count": 100
+    },
+    {
+      "_id": "e5",
+      "_sourceId": "n3",
+      "_targetId": "n6",
+      "_sourceName": "doc_norm",
+      "_targetName": "converter",
+      "doc_count": 750
+    },
+    {
+      "_id": "e6",
+      "_sourceId": "n3",
+      "_targetId": "n7",
+      "_sourceName": "doc_norm",
+      "_targetName": "search0",
+      "doc_count": 650
+    },
+    {
+      "_id": "e7",
+      "_sourceId": "n3",
+      "_targetId": "n5",
+      "_sourceName": "doc_norm",
+      "_targetName": "doc_error",
+      "doc_count": 100
+    },
+    {
+      "_id": "e8",
+      "_sourceId": "n4",
+      "_targetId": "n6",
+      "_sourceName": "doc_large",
+      "_targetName": "converter",
+      "doc_count": 150
+    },
+    {
+      "_id": "e9",
+      "_sourceId": "n4",
+      "_targetId": "n8",
+      "_sourceName": "doc_large",
+      "_targetName": "search1",
+      "doc_count": 100
+    },
+    {
+      "_id": "e10",
+      "_sourceId": "n4",
+      "_targetId": "n5",
+      "_sourceName": "doc_large",
+      "_targetName": "doc_error",
+      "doc_count": 50
+    },
+    {
+      "_id": "e11",
+      "_sourceId": "n5",
+      "_targetId": "n9",
+      "_sourceName": "doc_error",
+      "_targetName": "elastic_doc_error",
+      "doc_count": 250
+    }
+  ]
+}
